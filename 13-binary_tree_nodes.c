@@ -1,7 +1,5 @@
 #include "binary_trees.h"
 
-size_t counter(const binary_tree_t *tree, size_t count);
-
 /**
  * binary_tree_nodes - counts the nodes with at least one child
  * @tree: the root node of the binary tree to test
@@ -10,30 +8,13 @@ size_t counter(const binary_tree_t *tree, size_t count);
 
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {
-	size_t count = 0;
-
 	if (!tree)
 		return (0);
 
-	if (tree->left || tree->right)
-		count = counter(tree, 1);
+	size_t count = (tree->left || tree->right) ? 1 : 0;
 
-	return (count);
-}
+	count += binary_tree_nodes(tree->left);
+	count += binary_tree_nodes(tree->right);
 
-/**
- * counter - counts checks for nodes with child recursively
- * @tree: the node to check
- * @count: the number of the current leaves
- * Return: the number of leaves
- */
-
-size_t counter(const binary_tree_t *tree, size_t count)
-{
-	if (!tree || !(tree->left && tree->right))
-		return (count);
-
-	counter(tree->left, count++);
-	counter(tree->right, count++);
 	return (count);
 }
