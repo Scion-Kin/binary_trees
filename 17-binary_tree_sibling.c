@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_sibling - finds a sibling of a node in a binary tree
- * @node: the node to look for its sibling
+ * @node: the node to look for it's sibling
  * Return: the sibling, or else, NULL
  */
 
