@@ -42,5 +42,5 @@ int counter(const binary_tree_t *tree)
 	if (!tree->left || !tree->right)
 		return (0);
 
-	return(counter(tree->left) + counter(tree->right));
+	return (counter(tree->left) + counter(tree->right));
 }
